@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>Contact.qml</file>
+        <file>ContactForm.ui.qml</file>
+        <file>ContactDialog.qml</file>
+        <file>ContactDialogForm.ui.qml</file>
+        <file>EditDialog.qml</file>
+        <file>EditDialogForm.ui.qml</file>
+        <file>SearchBar.qml</file>
+        <file>SearchBarForm.ui.qml</file>
+        <file>SectionDelegate.ui.qml</file>
+        <file>images/baseline-menu-24px.svg</file>
+        <file>DrawerMenu.qml</file>
+        <file>database.js</file>
+        <file>request.js</file>
+        <file>sync.js</file>
+    </qresource>
+</RCC>
