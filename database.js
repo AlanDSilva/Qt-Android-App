@@ -38,7 +38,7 @@ function dbGetAll() {
                                  });
 
             // Checks if id is null
-            // console.log(results.rows.item(i).remote_id !== null);
+            console.log(results.rows.item(i).id);
         }
     });
 }

@@ -21,9 +21,10 @@ function syncToRemote() {
                 // Deletes this local contact
                 console.log("Deleting locally...");
                 tx.executeSql('DELETE FROM contact_list WHERE rowid=?', [results.rows.item(i).rowid]);
-                DB.dbGetAll();
+
             }
         }
+
     });
 }
 
@@ -40,6 +41,7 @@ function postRequest(content) {
 
             // Gets contacts after adding new one
             Request.getContacts2();
+            getNewContact()
 
         }
     }
@@ -49,6 +51,42 @@ function postRequest(content) {
     xhr.send(content);
 }
 
+
+// Returns contact with highest id from remote-database
+function getNewContact(){
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.HEADERS_RECEIVED) {
+        } else if(xhr.readyState === XMLHttpRequest.DONE) {
+            print('Get New Contact Done');
+            var object = JSON.parse(xhr.responseText);
+
+            // Sorts in id order (descending)
+            object.sort((a, b) => {
+                            if(a.id < b.id){
+                                return 1
+                            }
+                            if(a.id > b.id){
+                                return -1
+                            }
+                            return 0;
+                        });
+            insertToLocal(object[0]);
+        }
+    }
+    xhr.open("GET", "https://qtphone.herokuapp.com/contact");
+    xhr.send();
+}
+
+function insertToLocal(content){
+    var db = DB.dbHandle();
+    db.transaction( function(tx) {
+
+        tx.executeSql('INSERT INTO contact_list(id, firstname, lastname, mobile, email) VALUES(?, ?, ?, ?, ?)',
+                      [content.id ,content.firstname, content.lastname, content.mobile, content.email]);
+    });
+    DB.dbGetAll()
+}
 
 
 function syncToLocal() {

@@ -4,6 +4,7 @@ import QtQuick.Controls.Material 2.1
 import QtQuick.LocalStorage 2.12
 import "request.js" as Request
 import "database.js" as DB
+import "sync.js" as Sync
 
 ApplicationWindow {
     visible: true
@@ -15,6 +16,8 @@ ApplicationWindow {
         Request.getContacts2()
         DB.dbInit()
         DB.dbGetAll()
+//        Sync.getNewContact()
+
     }
 
     Drawer {
@@ -46,12 +49,12 @@ ApplicationWindow {
 
 
         // Title
-//        Label {
-//            text: "Contact List"
-//            font.pixelSize: 13
-//            anchors.centerIn: parent
-//            elide: Label.ElideRight
-//        }
+        //        Label {
+        //            text: "Contact List"
+        //            font.pixelSize: 13
+        //            anchors.centerIn: parent
+        //            elide: Label.ElideRight
+        //        }
 
         SearchBar{
             anchors.verticalCenter: parent.verticalCenter
