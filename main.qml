@@ -6,6 +6,9 @@ import "request.js" as Request
 import "database.js" as DB
 import "sync.js" as Sync
 
+import MyLib 1.0
+
+
 ApplicationWindow {
     visible: true
     width: 360
@@ -17,7 +20,10 @@ ApplicationWindow {
         DB.dbInit()
         DB.dbGetAll()
 //        Sync.getNewContact()
+    }
 
+    MyToast{
+        id: toast
     }
 
     Drawer {
