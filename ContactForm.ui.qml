@@ -63,13 +63,13 @@ ItemDelegate {
         }
 
         Button {
-            id: deleteBtn
-            text: qsTr("Delete")
+            id: editBtn
+            text: qsTr("Edit")
         }
 
         Button {
-            id: editBtn
-            text: qsTr("Edit")
+            id: deleteBtn
+            text: qsTr("Dial")
         }
     }
 

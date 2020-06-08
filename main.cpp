@@ -1,6 +1,9 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
-#include "mytoast.h"
+
+#include <QQmlContext>
+#include "opendial.h"
+
 
 int main(int argc, char *argv[])
 {
@@ -11,7 +14,7 @@ int main(int argc, char *argv[])
     QQmlApplicationEngine engine;
 
     QQmlContext *context = engine.rootContext();
-    qmlRegisterType<MyToast>("MyLib", 1, 0, "MyToast");
+    qmlRegisterType<OpenDial>("MyLib", 1, 0, "OpenDial");
 
     const QUrl url(QStringLiteral("qrc:/main.qml"));
     QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,

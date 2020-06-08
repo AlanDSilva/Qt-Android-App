@@ -22,8 +22,8 @@ ApplicationWindow {
 //        Sync.getNewContact()
     }
 
-    MyToast{
-        id: toast
+    OpenDial{
+        id: dial
     }
 
     Drawer {
@@ -102,7 +102,7 @@ ApplicationWindow {
                     editDialog.editContact(firstname, lastname, mobile, email)
                     editDialog.current = id;
                 }
-                deleteBtn.onClicked: console.log(id + " will be deleted")
+                deleteBtn.onClicked: dial.opendial(mobile)
             }
 
 

@@ -1,5 +1,5 @@
-QT += quick svg androidextras
-
+QT += quick svg
+android : QT += androidextras
 CONFIG += c++11
 
 # The following define makes your compiler emit warnings if you use
@@ -15,7 +15,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mytoast.cpp
+        opendial.cpp
 
 RESOURCES += qml.qrc
 
@@ -38,8 +38,7 @@ DISTFILES += \
     android/gradle/wrapper/gradle-wrapper.properties \
     android/gradlew \
     android/gradlew.bat \
-    android/res/values/libs.xml \
-    android/src/org/qtproject/example/OpenDial.java
+    android/res/values/libs.xml
 
 contains(ANDROID_TARGET_ARCH,x86) {
     ANDROID_PACKAGE_SOURCE_DIR = \
@@ -49,4 +48,4 @@ contains(ANDROID_TARGET_ARCH,x86) {
 }
 
 HEADERS += \
-    mytoast.h
+    opendial.h
