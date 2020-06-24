@@ -93,16 +93,7 @@ ApplicationWindow {
             }
 
             delegate: Contact {
-                nameText: firstname + " " + lastname + " " + id
-                mobileText: mobile
-                addressText: email
                 width: parent.width
-                editBtn.onClicked: {
-                    console.log(id + " will be edited")
-                    editDialog.editContact(firstname, lastname, mobile, email)
-                    editDialog.current = id;
-                }
-                deleteBtn.onClicked: dial.opendial(mobile)
             }
 
 

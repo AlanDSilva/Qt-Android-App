@@ -1,6 +1,7 @@
 .import "database.js" as DB
 .import "request.js" as Request
 
+// Syncs all local contacts to remote database
 function syncToRemote() {
     var db = DB.dbHandle();
     db.transaction( function(tx) {
@@ -28,6 +29,8 @@ function syncToRemote() {
     });
 }
 
+
+// Performs a post request to remote database
 function postRequest(content) {
     var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
@@ -37,11 +40,12 @@ function postRequest(content) {
         } else if(xhr.readyState === XMLHttpRequest.DONE) {
             print('POST DONE');
             var object = JSON.parse(xhr.response);
-            console.log(xhr.response.id)
+
+
+            getNewContact();
 
             // Gets contacts after adding new one
             Request.getContacts2();
-            getNewContact()
 
         }
     }

@@ -16,5 +16,12 @@
         <file>database.js</file>
         <file>request.js</file>
         <file>sync.js</file>
+        <file>RightButtonsForm.ui.qml</file>
+        <file>LeftButtonsForm.ui.qml</file>
+        <file>images/phone.svg</file>
+        <file>images/delete.svg</file>
+        <file>images/download.svg</file>
+        <file>images/edit.svg</file>
+        <file>images/upload.svg</file>
     </qresource>
 </RCC>

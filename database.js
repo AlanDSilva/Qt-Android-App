@@ -38,7 +38,7 @@ function dbGetAll() {
                                  });
 
             // Checks if id is null
-            console.log(results.rows.item(i).id);
+            //console.log(results.rows.item(i).id);
         }
     });
 }
@@ -54,14 +54,14 @@ function dbInsert() {
         var result = tx.executeSql('SELECT last_insert_rowid()')
         rowid = result.insertId;
     });
-    console.log("Locally inserted with insert_id :"+ rowid);
+    //console.log("Locally inserted with insert_id :"+ rowid);
 
     dbGetAll();
 }
 
 // Updates entry in local database
 function dbUpdate(id) {
-    console.log("Locally updating rowid="+id);
+    //console.log("Locally updating rowid="+id);
     var db = dbHandle();
     db.transaction( function(tx){
         tx.executeSql('UPDATE contact_list SET firstname=?, lastname=?, mobile=?, email=? WHERE rowid=?',
@@ -91,11 +91,21 @@ function dbSearch(search_text) {
                                  });
 
             // Checks if id is null
-            console.log(results.rows.item(i).remote_id !== null);
+            //console.log(results.rows.item(i).remote_id !== null);
         }
 
     });
 
+}
+
+// Deletes entry from database
+function dbDelete(id) {
+    var db = dbHandle();
+    db.transaction( function(tx) {
+        tx.executeSql('DELETE FROM contact_list WHERE rowid=?',[id]);
+
+        dbGetAll();
+    });
 }
 
 // Drops table: FOR TESTING PORPUSES ONLY

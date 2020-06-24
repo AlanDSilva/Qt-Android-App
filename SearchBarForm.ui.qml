@@ -22,7 +22,7 @@ Row {
             anchors.right: parent.right
             text: qsTr("X")
             //visible: searchtext.focus
-            background: parent.color
+            //            background: parent.color
         }
     }
 }

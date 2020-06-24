@@ -36,7 +36,7 @@ function getContacts2() {
 
 // Searches for remote contact dynamically
 function searchContact(search_text) {
-    console.log(search_text);
+
     if(!search_text){
         return
     }
@@ -61,7 +61,7 @@ function searchContact(search_text) {
 
             var regex = RegExp(search_text+'*');
             var result = object.filter(el => regex.test(el['firstname']) || regex.test(el['lastname']))
-            console.log(result)
+
 
             listModelJson.clear();
             for(var i in result){
@@ -98,7 +98,7 @@ function addContact() {
         } else if(xhr.readyState === XMLHttpRequest.DONE) {
             print('POST DONE');
             var object = JSON.parse(xhr.response);
-            console.log(xhr.response.id)
+
 
             // Gets contacts after adding new one
             getContacts2();
